@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Moderno</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4caf50, #81c784);
+            color: #fff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            color: #333;
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #4caf50;
+        }
+
+        p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .botao-voltar {
+            margin-top: 20px;
+            background-color: #4caf50;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            display: inline-block;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .botao-voltar:hover {
+            background-color: #388e3c;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Escaneie o QR Code</h1>
+        <p>Use a câmera do seu celular para acessar o link abaixo:</p>
+        
+        <!-- QR Code -->
+        <div class="qr-code">
+            <img src="IMG_3544.jpeg">
+        </div>
+        
+        <!-- Botão de voltar -->
+        <a href="pagamento.html" class="botao-voltar">Voltar para o início</a>
+        
+        <footer>
+            &copy; 2024 Planilhas Inteligentes. Todos os direitos reservados.
+        </footer>
+    </div>
+</body>
+</html>

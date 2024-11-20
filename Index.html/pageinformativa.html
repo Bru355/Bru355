@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transição de Página com Abas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Estilos das abas */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            margin: 20px 0;
+            background-color: #333;
+            color: white;
+            border-radius: 10px; /* Bordas arredondadas */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .tab {
+            padding: 15px 30px;
+            text-align: center;
+            border: 1px solid #444;
+            flex: 1;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .tab:hover {
+            background-color: #575757;
+            transform: scale(1.05); /* Efeito de aumento */
+        }
+
+        .active {
+            background-color: #666;
+            transform: scale(1.1); /* Aumenta a aba ativa */
+        }
+
+        /* Estilo do conteúdo das abas */
+        .content {
+            padding: 20px;
+            display: none;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Botão de navegação */
+        button {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 30px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            button {
+                width: 80%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Abas -->
+    <div class="tabs">
+        <div class="tab" onclick="openTab('servico')">Serviço</div>
+        <div class="tab" onclick="openTab('contato')">Contato</div>
+        <div class="tab" onclick="openTab('sobre')">Sobre</div>
+        <div class="tab" onclick="openTab('aviso')">Aviso</div>
+    </div>
+
+    <!-- Conteúdo das abas -->
+    <div class="content" id="servico">
+        <h2>Soluções Prontas</h2>
+        <p>Economize tempo e esforço com nossas planilhas prontas para uso, projetadas para automatizar tarefas e simplificar seus processos.</p>
+    </div>
+
+    <div class="content" id="contato">
+        <h2>Contato</h2>
+        <p>planilhainteligente725@gmail.com</p>
+    </div>
+
+    <div class="content" id="sobre">
+        <h2>Sobre</h2>
+        <p>Todas as planilhas já vêm com as fórmulas inseridas. Caso apresente algum erro, entre em contato conosco.</p>
+    </div>
+
+    <div class="content" id="aviso">
+        <h2>Aviso</h2>
+        <p>As planilhas serão enviadas por e-mail após a confirmação do pagamento e o envio do comprovante. Para melhor identificação, escreva seu nome e o tipo de planilha que deseja adquirir. Confira na última página as planilhas e formas de pagamento.</p>
+    </div>
+
+    <button onclick="window.location.href='pagamento.html'">Ir para Página Pagamento</button>
+
+    <script>
+        function openTab(tabName) {
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelector(`.tab[onclick="openTab('${tabName}')"]`).classList.add('active');
+        }
+
+        // Abre a aba de "Serviço" por padrão
+        openTab('servico');
+    </script>
+
+</body>
+</html>

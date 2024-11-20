@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transição de Página</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif; /* Fonte moderna e legível */
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Fundo neutro claro */
+            color: #333; /* Texto escuro para contraste */
+        }
+
+        /* Transições de Fade */
+        .fade {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .fadeIn {
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Estilo da navegação */
+        nav {
+            background-image: linear-gradient(to right, #336699, #6699cc); /* Gradiente suave */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra suave */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            margin: 0 15px;
+            border-radius: 30px; /* Bordas arredondadas */
+            display: inline-block;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255,255,255,0.3); /* Hover com leve transparência */
+            transform: translateY(-5px); /* Efeito de elevação */
+        }
+
+        /* Estilo do conteúdo principal */
+        .content {
+            padding: 40px;
+            animation: fadeIn 1s ease-in-out;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Tamanho maior para o título */
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify; /* Justificar o texto */
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav a {
+                padding: 10px 20px;
+                font-size: 1rem;
+                margin: 0 8px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="page1.html">Página 1</a>
+        <a href="page2.html">Página 2</a>
+        <a href="page3.html">Página 3</a>
+    </nav>
+    <div class="content" id="content">
+        <h1>Planilha Controle de Estoque</h1>
+        <p>Uma planilha de controle de estoque ajuda empresas a monitorar seus produtos. Ela geralmente inclui colunas para o nome do produto, código, quantidade inicial, entradas (novos produtos recebidos), saídas (produtos vendidos ou usados), quantidade atual (quantidade em estoque), e preço unitário.</p>
+    </div>
+
+    <script>
+        // Função de transição de fade (adicionando efeito para transição)
+        function fadeOutEffect(targetPage) {
+            const content = document.getElementById('content');
+            content.classList.add('fade');
+            setTimeout(() => {
+                window.location.href = targetPage;
+            }, 1000); // Redireciona após a animação de fade
+        }
+
+        // Adicionando evento de clique para redirecionamento
+        window.onload = function() {
+            document.querySelectorAll('a').forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetPage = this.href;
+                    fadeOutEffect(targetPage);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
